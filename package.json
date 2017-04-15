@@ -1,0 +1,34 @@
+{
+  "name": "lcov-badge",
+  "version": "0.1.0",
+  "description": "Generate a badge from a Lcov report",
+  "main": "index.js",
+  "bin": {
+    "lcov-badge": "./index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/freejosh/lcov-badge.git"
+  },
+  "author": "Josh Freeman <freejosh@gmail.com> (http://joshfreeman.ca)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/freejosh/lcov-badge/issues"
+  },
+  "homepage": "https://github.com/freejosh/lcov-badge#readme",
+  "dependencies": {
+    "argparse": "^1.0.9",
+    "badge-up": "^2.3.0",
+    "lcov-parse": "0.0.10",
+    "svg2png": "^4.1.1"
+  },
+  "devDependencies": {
+    "eslint": "^3.19.0"
+  },
+  "engines": {
+    "node": ">=6"
+  },
+  "scripts": {
+    "version": "./write-readme.sh && git add README.md",
+  }
+}
