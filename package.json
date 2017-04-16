@@ -29,6 +29,7 @@
     "node": ">=6"
   },
   "scripts": {
-    "version": "./write-readme.sh && git add README.md"
+    "version": "./write-readme.sh && git add README.md",
+    "postversion": "git push && git push --tags"
   }
 }
