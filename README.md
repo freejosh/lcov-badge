@@ -1,6 +1,6 @@
 # lcov-badge
 ```
-usage: index.js [-h] [-v] [-o OUTPUT] [-l LABEL] input
+usage: lcov-badge [-h] [-v] [-o OUTPUT] [-l LABEL] input
 
 Positional arguments:
   input                 Path to Lcov file to parse
