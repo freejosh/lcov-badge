@@ -2,6 +2,12 @@
   "name": "lcov-badge",
   "version": "1.0.1",
   "description": "Generate a badge from a Lcov report",
+  "keywords": [
+    "lcov",
+    "badge",
+    "coverage",
+    "test"
+  ],
   "bin": "./lcov-badge",
   "repository": {
     "type": "git",
