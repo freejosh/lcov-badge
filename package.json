@@ -2,10 +2,7 @@
   "name": "lcov-badge",
   "version": "1.0.1",
   "description": "Generate a badge from a Lcov report",
-  "main": "index.js",
-  "bin": {
-    "lcov-badge": "./index.js"
-  },
+  "bin": "./lcov-badge",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/freejosh/lcov-badge.git"
