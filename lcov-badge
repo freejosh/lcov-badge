@@ -60,12 +60,12 @@ parse(args.input, (parseErr, data) => {
 		});
 	});
 
-	const average = keys.reduce((avg, key) => {
+	const average = Math.round(keys.reduce((avg, key) => {
 		const found = summary[key].found;
 		return avg + (found > 0
-			? Math.round(summary[key].hit / found * 10000) / 100
+			? summary[key].hit / found * 100
 			: 100);
-	}, 0) / keys.length;
+	}, 0) / keys.length * 100) / 100;
 
 	let color = 'red';
 	if (average <= 85) {
