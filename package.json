@@ -1,7 +1,7 @@
 {
-  "name": "lcov-badge",
-  "version": "1.0.4",
-  "description": "Generate a badge from a Lcov report",
+  "name": "lcov-badge2",
+  "version": "1.0.0",
+  "description": "Generate a badge from a LCOV report",
   "keywords": [
     "lcov",
     "badge",
@@ -11,14 +11,14 @@
   "bin": "./lcov-badge",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/freejosh/lcov-badge.git"
+    "url": "https://github.com/stevenhair/lcov-badge2.git"
   },
-  "author": "Josh Freeman <freejosh@gmail.com> (http://joshfreeman.ca)",
+  "author": "Steve Hair <me@stevenhair.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/freejosh/lcov-badge/issues"
+    "url": "https://github.com/stevenhair/lcov-badge2/issues"
   },
-  "homepage": "https://github.com/freejosh/lcov-badge#readme",
+  "homepage": "https://github.com/stevenhair/lcov-badge2#readme",
   "dependencies": {
     "argparse": "^1.0.9",
     "badge-up": "^2.3.0",
