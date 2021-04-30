@@ -26,13 +26,13 @@
     "svg2png": "^4.1.1"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^7.25.0"
   },
   "engines": {
     "node": ">=6"
   },
   "scripts": {
-    "version": "./write-readme.sh && git add README.md",
-    "postversion": "git push && git push --tags"
+    "test": "echo 'ok'",
+    "lint": "eslint lcov-badge"
   }
 }

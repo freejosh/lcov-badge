@@ -1,2 +1,4 @@
-.eslintrc.json
-write-readme.sh
+.editorconfig
+.eslintrc*
+.gitignore
+.idea/*

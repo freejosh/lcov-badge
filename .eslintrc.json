@@ -1,16 +1,25 @@
 {
-	"parserOptions": {
-		"ecmaVersion": 6
-	},
-	"env": {
-		"node": true
-	},
-	"extends": "eslint:recommended",
-	"rules": {
-		"no-shadow": "error",
-		"indent": ["error", "tab"],
-		"no-unused-vars": "warn",
-		"comma-dangle": ["warn", "always-multiline"],
-		"semi": ["error", "always"]
-	}
+  "parserOptions": {
+    "ecmaVersion": 2017
+  },
+  "env": {
+    "node": true
+  },
+  "extends": "eslint:recommended",
+  "rules": {
+    "no-shadow": "error",
+    "indent": [
+      "error",
+      4
+    ],
+    "no-unused-vars": "warn",
+    "comma-dangle": [
+      "warn",
+      "always-multiline"
+    ],
+    "semi": [
+      "error",
+      "always"
+    ]
+  }
 }

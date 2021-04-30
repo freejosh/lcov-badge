@@ -10,89 +10,89 @@ const defaultOutput = './badge.svg';
 const defaultLabel = 'coverage';
 
 const parser = new ArgumentParser({
-	version: pkg.version,
-	addHelp: true,
+    version: pkg.version,
+    addHelp: true,
 });
 parser.addArgument(
-	'input',
-	{
-		help: 'Path to Lcov file to parse',
-	}
+    'input',
+    {
+        help: 'Path to Lcov file to parse',
+    },
 );
 parser.addArgument(
-	[ '-o', '--output' ],
-	{
-		help: `Output file path (.svg or .png) (default: ${defaultOutput})`,
-		defaultValue: defaultOutput,
-	}
+    ['-o', '--output'],
+    {
+        help: `Output file path (.svg or .png) (default: ${defaultOutput})`,
+        defaultValue: defaultOutput,
+    },
 );
 parser.addArgument(
-	[ '-l', '--label' ],
-	{
-		help: `Badge label (default: ${defaultLabel})`,
-		defaultValue: defaultLabel,
-	}
+    ['-l', '--label'],
+    {
+        help: `Badge label (default: ${defaultLabel})`,
+        defaultValue: defaultLabel,
+    },
 );
 const args = parser.parseArgs();
 
 const format = args.output.slice(-3);
 if (format !== 'svg' && format !== 'png') {
-	parser.printHelp();
-	return;
+    parser.printHelp();
+    return;
 }
 
 parse(args.input, (parseErr, data) => {
-	if (parseErr) {
-		throw parseErr;
-	}
+    if (parseErr) {
+        throw parseErr;
+    }
 
-	const summary = {
-		lines: { found: 0, hit: 0 },
-		branches: { found: 0, hit: 0 },
-		functions: { found: 0, hit: 0 },
-	};
-	const keys = ['lines', 'branches', 'functions'];
+    const summary = {
+        lines: { found: 0, hit: 0 },
+        branches: { found: 0, hit: 0 },
+        functions: { found: 0, hit: 0 },
+    };
+    const keys = ['lines', 'branches', 'functions'];
 
-	data.forEach((arg) => {
-		keys.forEach((key) => {
-			summary[key].found += arg[key].found;
-			summary[key].hit += arg[key].hit;
-		});
-	});
+    data.forEach((arg) => {
+        keys.forEach((key) => {
+            summary[key].found += arg[key].found;
+            summary[key].hit += arg[key].hit;
+        });
+    });
 
-	const average = Math.round(keys.reduce((avg, key) => {
-		const found = summary[key].found;
-		return avg + (found > 0
-			? summary[key].hit / found * 100
-			: 100);
-	}, 0) / keys.length * 100) / 100;
+    const average = Math.round(keys.reduce((avg, key) => {
+        const found = summary[key].found;
+        return avg + (found > 0
+            ? summary[key].hit / found * 100
+            : 100);
+    }, 0) / keys.length * 100) / 100;
 
-	let color = 'red';
-	if (average <= 85) {
-		color = 'orange';
-	} else if (average <= 90) {
-		color = 'yellow';
-	} else if (average <= 93) {
-		color = 'yellowgreen';
-	} else if (average <= 97) {
-		color = 'green';
-	} else {
-		color = 'brightgreen';
-	}
+    let color = 'red';
+    if (average <= 85) {
+        color = 'orange';
+    } else if (average <= 90) {
+        color = 'yellow';
+    } else if (average <= 93) {
+        color = 'yellowgreen';
+    } else if (average <= 97) {
+        color = 'green';
+    } else {
+        color = 'brightgreen';
+    }
 
-	badge(args.label, `${average}%`, badge.colors[color], (badgeErr, output) => {
-		if (badgeErr) {
-			throw badgeErr;
-		}
+    badge(args.label, `${average}%`, badge.colors[color], (badgeErr, output) => {
+        if (badgeErr) {
+            throw badgeErr;
+        }
 
-		if (format === 'png') {
-			output = svg2png.sync(output);
-		}
+        if (format === 'png') {
+            output = svg2png.sync(output);
+        }
 
-		fs.writeFile(args.output, output, (writeErr) => {
-			if (writeErr) {
-				throw writeErr;
-			}
-		});
-	});
+        fs.writeFile(args.output, output, (writeErr) => {
+            if (writeErr) {
+                throw writeErr;
+            }
+        });
+    });
 });
