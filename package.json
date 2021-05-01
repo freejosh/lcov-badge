@@ -8,7 +8,7 @@
     "coverage",
     "test"
   ],
-  "bin": "./lcov-badge",
+  "bin": "./main.js",
   "repository": {
     "type": "git",
     "url": "https://github.com/stevenhair/lcov-badge2.git"
@@ -19,20 +19,56 @@
     "url": "https://github.com/stevenhair/lcov-badge2/issues"
   },
   "homepage": "https://github.com/stevenhair/lcov-badge2#readme",
+  "scripts": {
+    "build": "tsc",
+    "coverage": "jest --coverage",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "lint": "eslint src/**/*.ts"
+  },
   "dependencies": {
-    "argparse": "^1.0.9",
-    "badge-up": "^2.3.0",
-    "lcov-parse": "0.0.10",
-    "svg2png": "^4.1.1"
+    "badge-up": "^3.0.0",
+    "minimist": "^1.2.5",
+    "minimist-options": "^4.1.0",
+    "parse-lcov": "^1.0.4"
   },
   "devDependencies": {
-    "eslint": "^7.25.0"
+    "@types/jest": "^26.0.23",
+    "@types/minimist": "^1.2.1",
+    "@types/minimist-options": "^3.0.0",
+    "@types/node": "^15.0.1",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-jest": "^24.3.6",
+    "eslint-plugin-unicorn": "^31.0.0",
+    "jest": "^26.6.3",
+    "ts-jest": "^26.5.5",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.2.4"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=12"
   },
-  "scripts": {
-    "test": "echo 'ok'",
-    "lint": "eslint lcov-badge"
+  "jest": {
+    "moduleFileExtensions": [
+      "js",
+      "json",
+      "ts"
+    ],
+    "rootDir": "src",
+    "modulePaths": [
+      "<rootDir>"
+    ],
+    "testRegex": ".spec.ts$",
+    "transform": {
+      "^.+\\.(t|j)s$": "ts-jest"
+    },
+    "collectCoverageFrom": [
+      "**/*.ts"
+    ],
+    "coverageDirectory": "../coverage",
+    "testEnvironment": "node"
   }
 }
