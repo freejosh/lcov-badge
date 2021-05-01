@@ -1,6 +1,6 @@
 # lcov-badge2
 
-A tool for generating SVG badges from LCOV reports
+A tool for generating SVG badges from LCOV reports, based on [lcov-badge](https://github.com/freejosh/lcov-badge)
 
 [![Build](https://github.com/stevenhair/lcov-badge2/actions/workflows/test.yml/badge.svg)](https://github.com/stevenhair/lcov-badge2/actions/workflows/test.yml)
 [![codecov](https://codecov.io/gh/stevenhair/lcov-badge2/branch/master/graph/badge.svg?token=nb0yy1Y6zc)](https://codecov.io/gh/stevenhair/lcov-badge2)
