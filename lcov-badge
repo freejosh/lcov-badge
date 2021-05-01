@@ -1,0 +1,16 @@
+#!/usr/bin/env node
+
+const fs = require('fs/promises');
+
+const { processArguments } = require('./cli');
+const { generateBadge } = require('./main');
+
+if (require.main === module) {
+    const args = processArguments();
+    generateBadge(args.input, args.label)
+        .then(async (badge) => fs.writeFile(args.output, badge))
+        .catch((e) => {
+            console.error(e);
+            process.exit(1);
+        });
+}

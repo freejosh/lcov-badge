@@ -1,6 +1,6 @@
 import { createBadge } from './badge';
 import { getCoverageLevel } from './coverage';
-import generateBadge from './main';
+import { generateBadge } from './main';
 
 jest.mock('./badge');
 jest.mock('./coverage');

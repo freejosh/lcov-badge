@@ -7,22 +7,25 @@
     "esModuleInterop": true,
     "experimentalDecorators": true,
     "target": "ES5",
-    "lib": ["es2020"],
+    "lib": [
+      "es2020"
+    ],
     "sourceMap": true,
     "outDir": "./dist",
     "baseUrl": "./src",
     "strictNullChecks": true,
-    "incremental": true,
     "noFallthroughCasesInSwitch": true,
     "noImplicitAny": true,
     "noImplicitReturns": true,
     "noImplicitThis": true,
     "resolveJsonModule": true,
     "strict": true,
-    "typeRoots" : [
+    "typeRoots": [
       "node_modules/@types",
       "types"
     ]
   },
-  "include": ["src", "test", "*.ts"]
+  "include": [
+    "src/**/*.ts"
+  ]
 }
