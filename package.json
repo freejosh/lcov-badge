@@ -21,12 +21,12 @@
   "homepage": "https://github.com/freejosh/lcov-badge#readme",
   "dependencies": {
     "argparse": "^2.0.1",
-    "badge-up": "^2.3.0",
-    "lcov-parse": "0.0.10",
+    "badge-up": "^3.0.0",
+    "lcov-parse": "^1.0.0",
     "svg2png": "^4.1.1"
   },
   "devDependencies": {
-    "eslint": "^3.19.0"
+    "eslint": "^8.57.1"
   },
   "engines": {
     "node": ">=10"
