@@ -10,30 +10,37 @@ const defaultOutput = './badge.svg';
 const defaultLabel = 'coverage';
 
 const parser = new ArgumentParser({
-	version: pkg.version,
-	addHelp: true,
+	add_help: true,
 });
-parser.addArgument(
+parser.add_argument(
+	'-v', '--version',
+	{
+		help: "Show program's version number and exit",
+		action: 'version',
+		version: pkg.version,
+	}
+);
+parser.add_argument(
 	'input',
 	{
 		help: 'Path to Lcov file to parse',
 	}
 );
-parser.addArgument(
-	[ '-o', '--output' ],
+parser.add_argument(
+	'-o', '--output',
 	{
 		help: `Output file path (.svg or .png) (default: ${defaultOutput})`,
-		defaultValue: defaultOutput,
+		default: defaultOutput,
 	}
 );
-parser.addArgument(
-	[ '-l', '--label' ],
+parser.add_argument(
+	'-l', '--label',
 	{
 		help: `Badge label (default: ${defaultLabel})`,
-		defaultValue: defaultLabel,
+		default: defaultLabel,
 	}
 );
-const args = parser.parseArgs();
+const args = parser.parse_args();
 
 const format = args.output.slice(-3);
 if (format !== 'svg' && format !== 'png') {

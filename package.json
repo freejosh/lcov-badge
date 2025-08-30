@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/freejosh/lcov-badge#readme",
   "dependencies": {
-    "argparse": "^1.0.9",
+    "argparse": "^2.0.1",
     "badge-up": "^2.3.0",
     "lcov-parse": "0.0.10",
     "svg2png": "^4.1.1"
@@ -29,7 +29,7 @@
     "eslint": "^3.19.0"
   },
   "engines": {
-    "node": ">=6"
+    "node": ">=10"
   },
   "scripts": {
     "version": "./write-readme.sh && git add README.md",
