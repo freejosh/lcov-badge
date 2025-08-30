@@ -21,7 +21,7 @@
   "homepage": "https://github.com/freejosh/lcov-badge#readme",
   "dependencies": {
     "argparse": "^2.0.1",
-    "badge-up": "^3.0.0",
+    "badge-up2": "^2.0.1",
     "lcov-parse": "^1.0.0",
     "svg2png": "^4.1.1"
   },

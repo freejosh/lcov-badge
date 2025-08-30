@@ -2,7 +2,7 @@
 const fs = require('fs');
 const ArgumentParser = require('argparse').ArgumentParser;
 const parse = require('lcov-parse');
-const badge = require('badge-up');
+const { basic: badge, basicColors } = require('badge-up2');
 const svg2png = require('svg2png');
 const pkg = require('./package.json');
 
@@ -87,19 +87,15 @@ parse(args.input, (parseErr, data) => {
 		color = 'brightgreen';
 	}
 
-	badge(args.label, `${average}%`, badge.colors[color], (badgeErr, output) => {
-		if (badgeErr) {
-			throw badgeErr;
-		}
+	let output = badge(args.label, `${average}%`, basicColors[color]);
 
-		if (format === 'png') {
-			output = svg2png.sync(output);
-		}
+	if (format === 'png') {
+		output = svg2png.sync(output);
+	}
 
-		fs.writeFile(args.output, output, (writeErr) => {
-			if (writeErr) {
-				throw writeErr;
-			}
-		});
+	fs.writeFile(args.output, output, (writeErr) => {
+		if (writeErr) {
+			throw writeErr;
+		}
 	});
 });
