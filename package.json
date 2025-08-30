@@ -23,13 +23,13 @@
     "argparse": "^2.0.1",
     "badge-up2": "^2.0.1",
     "lcov-parse": "^1.0.0",
-    "svg2png": "^4.1.1"
+    "sharp": "^0.34.3"
   },
   "devDependencies": {
     "eslint": "^8.57.1"
   },
   "engines": {
-    "node": ">=10"
+    "node": ">=18.17"
   },
   "scripts": {
     "version": "./write-readme.sh && git add README.md",

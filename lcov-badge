@@ -3,7 +3,7 @@ const fs = require('fs');
 const ArgumentParser = require('argparse').ArgumentParser;
 const parse = require('lcov-parse');
 const { basic: badge, basicColors } = require('badge-up2');
-const svg2png = require('svg2png');
+const sharp = require('sharp');
 const pkg = require('./package.json');
 
 const defaultOutput = './badge.svg';
@@ -90,7 +90,12 @@ parse(args.input, (parseErr, data) => {
 	let output = badge(args.label, `${average}%`, basicColors[color]);
 
 	if (format === 'png') {
-		output = svg2png.sync(output);
+		const [, width] = output.match(/width="(\d+)"/i);
+		const [, height] = output.match(/height="(\d+)"/i);
+		sharp(Buffer.from(output))
+			.resize(parseInt(width, 10), parseInt(height, 10))
+			.toFile(args.output);
+		return;
 	}
 
 	fs.writeFile(args.output, output, (writeErr) => {
